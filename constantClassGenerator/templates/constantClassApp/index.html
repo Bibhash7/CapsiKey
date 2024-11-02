@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constant Value Generator</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to top, #4caf50, #03c9b1, #73daf0, #cee8ff, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            text-transform: capitalize;
+        }
+
+        .example-box {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .user-count {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .auth-links {
+            margin-top: 25px;
+        }
+
+        .auth-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 12px 24px;
+            color: #ffffff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .auth-link:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1><u>Welcome to CapsiKey</u></h1>
+    <div class="example-box">
+        <strong>Example:</strong><br><br>
+        <strong>Input:</strong> `field_name`, `output`<br>
+        <strong>Result:</strong><br>
+        FIELD_NAME = "field_name"<br>
+        OUTPUT = "output"
+    </div>
+
+    <div class="user-count" id="user-count">
+        Loading total user count...
+    </div>
+
+    <div class="auth-links">
+        <a href="{% url 'sign_in' %}" class="auth-link">Sign In</a>
+        <a href="{% url 'sign_up' %}" class="auth-link">Sign Up</a>
+    </div>
+</div>
+
+<footer>Designed and developed by Bibhash Ghosh</footer>
+
+<script>
+    // JavaScript to fetch and display the total user count
+    async function fetchUserCount() {
+        try {
+            const response = await fetch('get_user_count'); // Adjust URL if necessary
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            document.getElementById('user-count').innerText = `Total number of active users: ${data.count}`;
+        } catch (error) {
+            document.getElementById('user-count').innerText = "Failed to load user count";
+            console.error('Error fetching user count:', error);
+        }
+    }
+
+    // Call the function to load the user count when the page loads
+    document.addEventListener('DOMContentLoaded', fetchUserCount);
+</script>
+
+</body>
+</html>

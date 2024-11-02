@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Attribute</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to top, #4caf50, #03c9b1, #73daf0, #cee8ff, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            text-transform: capitalize;
+            display: inline-block;
+        }
+
+        .signout-link {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .signout-link:hover {
+            color: #388E3C;
+        }
+
+        .form-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .form-group textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            color: #ffffff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        footer {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="{% url 'sign_out' %}" class="signout-link">Sign Out</a>
+    <h1><u>Enter Attribute</u></h1>
+    <form method="POST" action="{% url 'constant_create' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="attribute">Attribute:</label>
+            <textarea id="attribute" name="data" rows="6" cols="40" required style="width: 100%; height: 150px;">{{ request.POST.data|default_if_none:"" }}</textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    {% if success %}
+        <div class="success-message">
+            <strong>Output:</strong>
+            <pre>{{ message }}</pre>
+        </div>
+    {% elif message %}
+        <div class="error-message">
+            {{ message }}
+        </div>
+    {% endif %}
+</div>
+
+<footer>Designed and developed by Bibhash Ghosh</footer>
+
+</body>
+</html>
