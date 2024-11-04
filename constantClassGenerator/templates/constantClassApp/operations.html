@@ -113,11 +113,11 @@
 
 <div class="container">
     <a href="{% url 'sign_out' %}" class="signout-link">Sign Out</a>
-    <h1><u>Enter Attribute</u></h1>
+    <h1><u>Enter Attributes</u></h1>
     <form method="POST" action="{% url 'constant_create' %}">
         {% csrf_token %}
         <div class="form-group">
-            <label for="attribute">Attribute:</label>
+            <label for="attribute">Attributes:</label>
             <textarea id="attribute" name="data" rows="6" cols="40" required style="width: 100%; height: 150px;">{{ request.POST.data|default_if_none:"" }}</textarea>
         </div>
         <button type="submit" class="submit-btn">Submit</button>
