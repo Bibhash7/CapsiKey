@@ -190,6 +190,21 @@ def home(request):
             status=500
         )
 
+def handle_unknown_routes(request):
+    try:
+        return render(
+            request,
+            template_name="constantClassApp/unknown_routes.html",
+            status=200
+        )
+    except Exception as error:
+        logger.error(error)
+        return render(
+            request,
+            template_name="constantClassApp/internal_server_error.html",
+            status=500
+        )
+
 
 
 
