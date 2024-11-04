@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
     <style>
+        /* Existing styles */
         html, body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -72,6 +73,24 @@
             background-color: #45a049;
         }
 
+        /* New styles for auth-link buttons */
+        .auth-link-btn {
+            padding: 12px 24px;
+            color: #ffffff;
+            background-color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .auth-link-btn:hover {
+            background-color: #45a049;
+        }
+
         .error-message {
             color: red;
             font-weight: bold;
@@ -117,8 +136,8 @@
         </div>
     {% endif %}
     <div class="auth-links" style="margin-top: 25px;">
-        <a href="{% url 'sign_up' %}" class="auth-link">Sign Up</a>
-        <a href="{% url 'home' %}" class="auth-link">Home</a>
+        <a href="{% url 'sign_up' %}" class="auth-link-btn">Sign Up</a>
+        <a href="{% url 'home' %}" class="auth-link-btn">Home</a>
     </div>
 </div>
 

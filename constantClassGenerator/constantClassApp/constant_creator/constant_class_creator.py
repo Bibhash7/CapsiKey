@@ -1,3 +1,4 @@
+import re
 import logging
 from constantClassApp.constants import ErrorMessage
 
@@ -12,12 +13,13 @@ def check_alpha_string(string):
 
 def create_constant_class(textstring):
     try:
-        multiline_str = """"""
+        multiline_str = ""
         textstring = textstring.replace(" ", "")
-        text_arr = textstring.split(",")
+        text_arr = re.split(r'[,\n]+', textstring)
+        text_arr = [text.strip('\r') for text in text_arr if text.strip('\r')]
         for text in text_arr:
             if check_alpha_string(text):
-                multiline_str += text.upper() + " = " + f'"{text}"' + "\n"
+                multiline_str += f'{text.upper()} = "{text}"\n'
             else:
                 raise ValueError(ErrorMessage.NOT_A_ALPHA_STRING)
         return multiline_str

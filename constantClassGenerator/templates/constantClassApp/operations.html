@@ -94,11 +94,11 @@
             font-weight: bold;
         }
 
-        .success-message {
-            color: green;
-            font-weight: bold;
+        .success-output {
             margin-top: 15px;
             text-align: left;
+            width: 100%;
+            font-size: 16px;
         }
 
         footer {
@@ -124,9 +124,9 @@
     </form>
 
     {% if success %}
-        <div class="success-message">
-            <strong>Output:</strong>
-            <pre>{{ message }}</pre>
+        <div class="form-group">
+            <label for="output">Output:</label>
+            <textarea id="output" class="success-output" rows="6" readonly>{{ message }}</textarea>
         </div>
     {% elif message %}
         <div class="error-message">

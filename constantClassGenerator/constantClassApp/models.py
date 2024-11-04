@@ -4,7 +4,6 @@ from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
 from django.core.validators import MinLengthValidator
 logger = logging.getLogger(__name__)
-from email_validator import validate_email, EmailNotValidError
 
 
 # Create your models here.

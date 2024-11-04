@@ -72,6 +72,33 @@
             background-color: #45a049;
         }
 
+        .auth-link-btn {
+            padding: 12px 24px;
+            color: #ffffff;
+            background-color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .auth-link-btn:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+
+        .success-message {
+            color: green;
+            font-weight: bold;
+        }
+
         footer {
             font-size: 14px;
             color: #555;
@@ -97,13 +124,13 @@
         <button type="submit" class="submit-btn">Submit</button>
     </form>
     {% if not success %}
-        <div class="success-message">
+        <div class="error-message">
             {{ message }}
         </div>
  {% endif %}
     <div class="auth-links" style="margin-top: 25px;">
-        <a href="{% url 'sign_in' %}" class="auth-link">Sign In</a>
-        <a href="{% url 'home' %}" class="auth-link">Home</a>
+        <a href="{% url 'sign_in' %}" class="auth-link-btn">Sign In</a>
+        <a href="{% url 'home' %}" class="auth-link-btn">Home</a>
     </div>
 </div>
 
