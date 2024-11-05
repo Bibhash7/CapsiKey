@@ -16,6 +16,11 @@ logger = logging.getLogger(__name__)
 
 
 def sign_up(request):
+    """
+    API for user sign up.
+    :param request:
+    :return: render template:
+    """
     if request.method == 'GET':
         return render(
             request,
@@ -58,6 +63,11 @@ def sign_up(request):
 
 
 def get_user_count(request):
+    """
+    API to fetch user count.
+    :param request:
+    :return JSON:
+    """
     if request.method == 'GET':
         try:
             total_users = LoggedUser.objects.count()
@@ -73,6 +83,11 @@ def get_user_count(request):
             )
 
 def sign_in(request):
+    """
+    API for user sign in.
+    :param request:
+    :return render template:
+    """
     if request.method == 'GET':
         return render(
             request,
@@ -130,6 +145,11 @@ def sign_in(request):
         )
 
 def sign_out(request):
+    """
+    API for sign out a session.
+    :param request:
+    :return render template:
+    """
     try:
         request.session.pop(LoggedUserAttributes.EMAIL)
         return render(
@@ -147,6 +167,11 @@ def sign_out(request):
         )
 
 def constant_class_create(request):
+    """
+    API to create key of constants.
+    :param request:
+    :return render template:
+    """
     if request.method == 'POST':
         try:
             data = request.POST.get(LoggedUserAttributes.DATA)
@@ -176,6 +201,11 @@ def constant_class_create(request):
 
 
 def home(request):
+    """
+    API for home page.
+    :param request:
+    :return render template:
+    """
     try:
         return render(
             request,
@@ -191,6 +221,11 @@ def home(request):
         )
 
 def handle_unknown_routes(request):
+    """
+    API to handle unknown routes.
+    :param request:
+    :return render template:
+    """
     try:
         return render(
             request,

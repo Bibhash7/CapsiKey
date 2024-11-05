@@ -80,6 +80,16 @@
             text-align: center;
             margin-top: 20px;
         }
+
+        .linkedin-icon {
+            display: inline-block;
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+            margin-left: 10px;
+            background: url('{% static "path/to/linkedin-logo.png" %}') no-repeat center center; /* Path to LinkedIn logo */
+            background-size: contain; /* Ensure the logo fits */
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +114,10 @@
     </div>
 </div>
 
-<footer>Designed and developed by Bibhash Ghosh</footer>
+<footer>
+    Designed and developed by Bibhash Ghosh
+    <a href="https://www.linkedin.com/in/your-profile/" class="linkedin-icon" target="_blank" title="LinkedIn Profile"></a>
+</footer>
 
 <script>
     // JavaScript to fetch and display the total user count
