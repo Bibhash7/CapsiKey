@@ -6,12 +6,22 @@ logger = logging.getLogger()
 
 
 def check_alpha_string(string):
+    """
+    Checks if a string is completely alphanumeric.
+    :param string:
+    :return bool:
+    """
     if string.replace("_", "").isalpha():
         return True
     return False
 
 
 def create_constant_class(textstring):
+    """
+    Create key value pair of strings.
+    :param textstring:
+    :return string:
+    """
     try:
         multiline_str = ""
         textstring = textstring.replace(" ", "")
