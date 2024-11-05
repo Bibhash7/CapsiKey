@@ -17,14 +17,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from constantClassApp import views
+from .settings import DEBUG
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.home, name='home'),
-    path('sign_in/', views.sign_in, name='sign_in'),
-    path('sign_up/', views.sign_up, name='sign_up'),
-    path('constant_class_create/', views.constant_class_create, name='constant_create'),
-    path('sign_out/',views.sign_out, name = 'sign_out'),
-    path('get_user_count/', views.get_user_count, name='get_user_count'),
-    re_path(r'^.*$', views.handle_unknown_routes),
-]
+if DEBUG:
+    urlpatterns = [
+        path("admin/", admin.site.urls),
+        path("", views.home, name='home'),
+        path('sign_in/', views.sign_in, name='sign_in'),
+        path('sign_up/', views.sign_up, name='sign_up'),
+        path('constant_class_create/', views.constant_class_create, name='constant_create'),
+        path('sign_out/',views.sign_out, name = 'sign_out'),
+        path('get_user_count/', views.get_user_count, name='get_user_count'),
+        re_path(r'^.*$', views.handle_unknown_routes),
+    ]
+else:
+    urlpatterns = [
+        path("", views.home, name='home'),
+        path('sign_in/', views.sign_in, name='sign_in'),
+        path('sign_up/', views.sign_up, name='sign_up'),
+        path('constant_class_create/', views.constant_class_create, name='constant_create'),
+        path('sign_out/', views.sign_out, name='sign_out'),
+        path('get_user_count/', views.get_user_count, name='get_user_count'),
+        re_path(r'^.*$', views.handle_unknown_routes),
+    ]
