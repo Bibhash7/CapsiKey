@@ -11,7 +11,7 @@ class ErrorMessage:
     NOT_A_ALPHA_STRING = {"success": False, "message": "Only alpha string with _ is allowed."}
     INCORRECT_PASSWORD = {"success": False, "message": "Invalid username or password."}
     USER_DOES_NOT_EXISTS = {"success": False, "message": "User does not exists, please sign up."}
-    EMPTY_DATA = {"success": False, "message": "Please provide values."}
+    INVALID_FORMAT = {"success": False, "message": "Provide a string of alphabetic characters only, allowing underscores; comma, space or newline-separated."}
 
 class SuccessMessage:
     USER_CREATED = {"success": True, "message": "User Created."}

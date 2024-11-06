@@ -128,9 +128,10 @@
             <label for="output">Output:</label>
             <textarea id="output" class="success-output" rows="6" readonly>{{ message }}</textarea>
         </div>
-    {% elif message %}
-        <div class="error-message">
-            {{ message }}
+    {% elif not success %}
+        <div class="form-group">
+            <label for="output">Output:</label>
+            <textarea id="output" class="success-output" rows="6" readonly>{{ message }}</textarea>
         </div>
     {% endif %}
 </div>

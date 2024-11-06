@@ -175,8 +175,8 @@ def constant_class_create(request):
     if request.method == 'POST':
         try:
             data = request.POST.get(LoggedUserAttributes.DATA)
-            if data:
-                constant_class_string = constant_class_creator.create_constant_class(data)
+            constant_class_string = constant_class_creator.check_and_create_constant_class(data)
+            if constant_class_string:
                 CONST_DICT = {"success": True, "message": constant_class_string}
                 return render(
                     request,
@@ -188,7 +188,7 @@ def constant_class_create(request):
                 return render(
                     request,
                     template_name="constantClassApp/operations.html",
-                    context=ErrorMessage.EMPTY_DATA,
+                    context=ErrorMessage.INVALID_FORMAT,
                     status=400
                 )
         except Exception as error:
