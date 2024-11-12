@@ -23,20 +23,20 @@ if DEBUG:
     urlpatterns = [
         path("admin/", admin.site.urls),
         path("", views.home, name='home'),
-        path('sign_in/', views.sign_in, name='sign_in'),
-        path('sign_up/', views.sign_up, name='sign_up'),
-        path('constant_class_create/', views.constant_class_create, name='constant_create'),
-        path('sign_out/',views.sign_out, name = 'sign_out'),
-        path('get_user_count/', views.get_user_count, name='get_user_count'),
+        path('sign-in/', views.sign_in, name='sign_in'),
+        path('sign-up/', views.sign_up, name='sign_up'),
+        path('constant-class_create/', views.constant_class_create, name='constant_create'),
+        path('sign-out/',views.sign_out, name = 'sign_out'),
+        path('get-user-count/', views.get_user_count, name='get_user_count'),
         re_path(r'^.*$', views.handle_unknown_routes),
     ]
 else:
     urlpatterns = [
         path("", views.home, name='home'),
-        path('sign_in/', views.sign_in, name='sign_in'),
-        path('sign_up/', views.sign_up, name='sign_up'),
-        path('constant_class_create/', views.constant_class_create, name='constant_create'),
-        path('sign_out/', views.sign_out, name='sign_out'),
-        path('get_user_count/', views.get_user_count, name='get_user_count'),
+        path('sign-in/', views.sign_in, name='sign_in'),
+        path('sign-up/', views.sign_up, name='sign_up'),
+        path('constant-class-create/', views.constant_class_create, name='constant_create'),
+        path('sign-out/', views.sign_out, name='sign_out'),
+        path('get-user-count/', views.get_user_count, name='get_user_count'),
         re_path(r'^.*$', views.handle_unknown_routes),
     ]
