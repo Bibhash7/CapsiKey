@@ -1,6 +1,10 @@
 # CapsiKey
 CapsiKey is a utility that instantly converts any number of input strings into constant-style key-value pairs, ideal for developers who want quick and consistent variable declarations.
 
+## Deployment URL
+
+https://capsikey.pythonanywhere.com/
+
 ## Features
 
 - Takes multiple string inputs and generates corresponding constant values.
